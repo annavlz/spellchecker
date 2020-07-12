@@ -1,6 +1,10 @@
-# New Project
+# Spellchecker
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
+
+This is an example of a simple web application.
+
+You can see the published version at (<https://www.annasandbox.com>).
 
 ## Available Scripts
 
