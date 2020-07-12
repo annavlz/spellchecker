@@ -1,8 +1,18 @@
 import React from 'react';
 import './App.css';
+import DICTIONARY from './dictionary';
 
 function App() {
-  return <div className="App">Spellchecker</div>;
+  console.log(DICTIONARY);
+  return (
+    <div className="App">
+      <ul>
+        {DICTIONARY.map((word) => (
+          <li>{word}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default App;
