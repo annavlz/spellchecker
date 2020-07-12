@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import DICTIONARY from './dictionary';
 
-const check = (word, dictionary) => dictionary.includes(word);
+const wordIsInDic = (word, dictionary) => dictionary.includes(word);
+
+const checkWord = (e) => {
+  e.preventDefault();
+  const result = wordIsInDic(e.target.testWord.value, DICTIONARY)
+    ? 'correct'
+    : 'incorrect';
+  setResult(result);
+};
 
 function App() {
   const [result, setResult] = useState('');
-  const calcResult = (e) => {
-    e.preventDefault();
-    const result = check(e.target.testWord.value, DICTIONARY)
-      ? 'correct'
-      : 'incorrect';
-    setResult(result);
-  };
-
   return (
     <div className="App">
-      <form onSubmit={calcResult}>
+      <form onSubmit={checkWord}>
         <label htmlFor="testWord">Type the word you want to check</label>
         <input type="text" id="testWord" name="testWord" />
         <input type="submit" value="Check" />
@@ -27,4 +27,4 @@ function App() {
 }
 
 export default App;
-export { check };
+export { wordIsInDic };
