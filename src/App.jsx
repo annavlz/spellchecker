@@ -2,17 +2,11 @@ import React from 'react';
 import './App.css';
 import DICTIONARY from './dictionary';
 
+const check = (word, dictionary) => dictionary.includes(word);
+
 function App() {
-  console.log(DICTIONARY);
-  return (
-    <div className="App">
-      <ul>
-        {DICTIONARY.map((word) => (
-          <li>{word}</li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <div className="App">Spellchecker</div>;
 }
 
 export default App;
+export { check };
