@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import App, { wordIsInDic } from './App';
 import DICTIONARY from './dictionary';
+
+const getRandomIndexInList = (list) => Math.round(Math.random() * list.length);
 
 test('renders the form', () => {
   const { getByLabelText, getByText } = render(<App />);
@@ -12,8 +14,7 @@ test('renders the form', () => {
 });
 
 test('checks if the word in the dictionary', () => {
-  const randomIndexInDic = Math.round(Math.random() * DICTIONARY.length);
-  const goodTestWord = DICTIONARY[randomIndexInDic];
+  const goodTestWord = DICTIONARY[getRandomIndexInList(DICTIONARY)];
   expect(wordIsInDic(goodTestWord, DICTIONARY)).toBeTruthy();
   expect(wordIsInDic('abcdrf', DICTIONARY)).toBeFalsy();
 });
