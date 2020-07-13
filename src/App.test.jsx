@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import App, { wordIsInDic } from './App';
+import { getRandomIndexInList } from './utils';
 import DICTIONARY from './dictionary';
 
 test('renders the form', () => {
@@ -12,8 +13,8 @@ test('renders the form', () => {
 });
 
 test('checks if the word in the dictionary', () => {
-  const randomIndexInDic = Math.round(Math.random() * DICTIONARY.length);
-  const goodTestWord = DICTIONARY[randomIndexInDic];
+  const goodTestWord = DICTIONARY[getRandomIndexInList(DICTIONARY)];
+  const badTestWord = 'asjskadl';
   expect(wordIsInDic(goodTestWord, DICTIONARY)).toBeTruthy();
-  expect(wordIsInDic('abcdrf', DICTIONARY)).toBeFalsy();
+  expect(wordIsInDic(badTestWord, DICTIONARY)).toBeFalsy();
 });

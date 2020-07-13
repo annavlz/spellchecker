@@ -4,16 +4,15 @@ import DICTIONARY from './dictionary';
 
 const wordIsInDic = (word, dictionary) => dictionary.includes(word);
 
-const checkWord = (e) => {
-  e.preventDefault();
-  const result = wordIsInDic(e.target.testWord.value, DICTIONARY)
-    ? 'correct'
-    : 'incorrect';
-  setResult(result);
-};
-
 function App() {
   const [result, setResult] = useState('');
+  const checkWord = (e) => {
+    e.preventDefault();
+    const result = wordIsInDic(e.target.testWord.value, DICTIONARY)
+      ? 'correct'
+      : 'incorrect';
+    setResult(result);
+  };
   return (
     <div className="App">
       <form onSubmit={checkWord}>
